@@ -1,0 +1,75 @@
+*fern-renderer-plain.txt*		fern plugin to render in plain
+
+=============================================================================
+CONTENTS				*fern-renderer-plain-contents*
+
+INTRODUCTION			|fern-renderer-plain-introduction|
+USAGE				|fern-renderer-plain-usage|
+INTERFACE			|fern-renderer-plain-interface|
+  VARIABLE			|fern-renderer-plain-variable|
+
+
+=============================================================================
+INTRODUCTION				*fern-renderer-plain-introduction*
+
+*fern-renderer-plain.vim* is a |fern.vim| plugin which makes render like
+dirvish and defx.
+
+
+=============================================================================
+USAGE					*fern-renderer-plain-usage*
+
+Install https://github.com/ryanoasis/vim-plain and set "plain" to
+|g:fern#renderer| like:
+>
+	let g:fern#renderer = "plain"
+<
+
+=============================================================================
+INTERFACE				*fern-renderer-plain-interface*
+
+-----------------------------------------------------------------------------
+VARIABLE				*fern-renderer-plain-variable*
+
+*g:fern#renderer#plain#leading*
+	A |String| which is prepended to each node to indicates the nested
+	level of the node.
+
+	For example, when the value is "~~", the renderer output become:
+>
+	  root
+	  |- deep
+	  ~~|- alpha
+	  ~~~~|- beta
+	  ~~~~~~|  gamma
+<
+	Default: " "
+
+*g:fern#renderer#plain#marked_symbol*
+	A |String| which is prepended to marked nodes.
+
+	For example, when the value is "--> ", the renderer output become:
+>
+	--> root
+	  |- shallow
+	--> |+ alpha
+	   |- beta
+	--> |  gamma
+<
+	Default: "✓  "
+
+*g:fern#renderer#plain#unmarked_symbol*
+	A |String| which is prepended to nodes which is not marked.
+
+	For example, when the value is "--> ", the renderer output become:
+>
+	* root
+	--> |- shallow
+	* |+ alpha
+	--> |- beta
+	* |  gamma
+<
+	Default: "   "
+
+=============================================================================
+vim:tw=78:fo=tcq2mM:ts=8:ft=help:norl
