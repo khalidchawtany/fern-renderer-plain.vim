@@ -44,7 +44,7 @@ function! s:render_node(node, marks, base, options) abort
         \ : a:options.marked_symbol
   let level = len(a:node.__key) - a:base
   if level is# 0
-    return prefix . a:node.label
+    return prefix . '--- ' . a:node.label . ' ---'
   endif
   let leading = repeat(a:options.leading, level - 1)
   let suffix = a:node.status ? '/' : ''
